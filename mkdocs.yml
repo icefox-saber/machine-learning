@@ -1,0 +1,69 @@
+site_name: template
+site_description: A template for mkdocs
+site_author: icefox-saber
+site_url: https://icefox-saber.github.io/mkdocs-template/
+
+repo_name: icefox-saber/mkdocs-template
+repo_url: https://github.com/icefox-saber/mkdocs-template
+
+theme:
+  name: material
+  custom_dir: custom
+  language: en #zh
+  favicon: assets/favicon.jpeg
+  font:
+    text: Roboto
+    code: Roboto Mono
+  icon:
+    logo: fontawesome/solid/earth-americas
+    repo: fontawesome/brands/github
+  features:
+    - content.code.copy
+    - navigation.footer
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: teal
+      accent: blue
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: cyan
+      accent: amber
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+
+# Customization
+copyright: Copyright (c) 2024 icefox-saber
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/icefox-saber
+  analytics:
+    provider: google
+    property: G-NE8FKX91SB
+
+extra_css:
+  - https://unpkg.com/katex@0/dist/katex.min.css
+  - css/custom.css
+
+extra_javascript:
+  - javascripts/katex.js
+  - https://unpkg.com/katex@0/dist/katex.min.js
+  - https://unpkg.com/katex@0/dist/contrib/auto-render.min.js
+
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - toc:
+      permalink: true
+  - md_in_html
+
+nav:
+  - Preface: index.md
