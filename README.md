@@ -4,7 +4,7 @@ This is a template for mkdosc
 
 ## Author
 
-![cover](./assets/cover.jpeg)
+![cover](./docs/assets/cover.jpeg)
 
 ## License
 
