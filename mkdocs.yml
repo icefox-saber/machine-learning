@@ -67,3 +67,7 @@ markdown_extensions:
 
 nav:
   - Preface: index.md
+  - homework:
+      - chap01.md
+  - note:
+      - clustering.md      
