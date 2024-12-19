@@ -1,58 +1,3 @@
-# homework1
-
-## 2.1
-
-### 基于协方差矩阵的特征值分解
-
-$$
-\begin{aligned}
-    x_{i} = \frac{1}{N}\sum_{j=1}^{N}x_{j}\cr
-    X = [ x_{1},...,x_{N}](n \times N)\cr
-    C = \frac{1}{n} XX^{T}(n\times n)\cr
-    Cv_{i} = \lambda_{i} v_{i}\cr
-    w = \arg\max (\lambda_{}) \,v\cr
-\end{aligned}
-$$
-
-### 基于SVD分解协方差矩阵实现PCA算法
-
-$$
-\begin{aligned}
-    C = U\Sigma V^{T}\cr
-    w = \max(U[i])\cr
-\end{aligned}
-$$
-
-w 即是第一主成分
-
-- 特征值分解实现方法简单，适合小规模数据分析
-- 一些SVD算法不用计算协方差矩阵，效率高
-
-## 2.2
-
-$$
-\begin{aligned}
-    q(y|x) = \frac{q(x|y)q(y)}{q(x)}\cr
-    = \frac{G(x|Ay+\mu,\Sigma_{e})G(y|0,\Sigma_{y})}{q(x)}\cr
-    q(x) = \int q(x|y)q(y)dy\cr
-        = G(x|\mu,A\Sigma_{y}A^{T}+\Sigma_{e})\cr
-    q(y|x) = G(y|A^T \Sigma_e^{-1} A + \Sigma_y^{-1} )^{-1} A^T \Sigma_e^{-1} (x - \mu), ( A^T \Sigma_e^{-1} A + \Sigma_y^{-1} )^{-1})
-\end{aligned}
-$$
-
-## 2.3
-
-中心极限定理保证了混合信号的高斯性会增强，因此分离后的源信号应具有最强的非高斯性
-
-## 2.4
-
-由figure 1 知BIC相比AIC，对潜在维度较大时惩罚更大，预测其对潜在维度更大时偏差更大，AIC则在潜在维度更小时偏差更大,不过我并未找到使AIC或者BIC判断错误的输出
-
-![figure 1](../img/FA.png)
-
-代码如下
-
-```py
 import numpy as np
 from sklearn.decomposition import FactorAnalysis
 import matplotlib.pyplot as plt
@@ -112,11 +57,11 @@ def run_fa(X, max_components):
 # Step 3: 重复实验，观察AIC和BIC的表现
 def experiment():
     # 参数设置
-    N = 100  # 样本数量
-    n = 10  # 观测变量的维度
-    max_m = 8  # 测试的最大潜在维度
+    N = 50  # 样本数量
+    n = 20  # 观测变量的维度
+    max_m = 18  # 测试的最大潜在维度
     
-    m_true_list = [2, 3, 4, 5]  # 真实的潜在维度列表
+    m_true_list = [15]  # 真实的潜在维度列表
     
     plt.figure(figsize=(12, 8))
 
@@ -142,5 +87,3 @@ def experiment():
 
 if __name__ == "__main__":
     experiment()
-
-```
